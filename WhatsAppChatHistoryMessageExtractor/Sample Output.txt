@@ -1,0 +1,6 @@
+person 1: Hi
+person 2: Hey! Are you feeling better today?
+person 1: Yes I feel great thanks!
+person 3: I don't, bit of a bellyache
+person 3: Probably something I ate
+person 2: Get better soon!
