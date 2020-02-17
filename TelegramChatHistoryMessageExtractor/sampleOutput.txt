@@ -1,0 +1,8 @@
+Person 1: Good Night!
+Person 2: Hey! How's it going?
+Person 1: Pretty good
+Person 1: Python class was awesome today
+Person 1: Learned about html parsing with BeautifulSoup and then with that we learned how to build a WebScraper
+Person 2: Awesome!
+Person 2: Yes it is
+Person 1: Hope you can teach me that someday
