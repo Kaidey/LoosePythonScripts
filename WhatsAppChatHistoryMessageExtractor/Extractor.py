@@ -4,18 +4,25 @@ def readLogFile(fileName, outputFileName):
 
     messages = list()
     regex = re.compile(r'^[0-9][0-9]/[0-9][0-9]/[0-9][0-9][0-9][0-9], [a-zA-Z0-9]+', re.IGNORECASE)
+    checkMediaOmitted = re.compile(r'.*<Media omitted>$', re.IGNORECASE)
 
     with open(fileName, errors='replace', encoding='utf8') as file:
 
         for line in file:
 
-            if re.match(regex, line) is not None:
-
-                line = re.sub(r'[0-9][0-9]:[0-9][0-9]', r'splitMarker', line)
-
-                messages.append(line.split('splitMarker - ')[1])
+            if re.match(checkMediaOmitted, line) is not None:
+                pass
             else:
-                messages[messages.__len__() - 1] += line
+                if re.match(regex, line) is not None:
+
+                    line = re.sub(r'[0-9][0-9]:[0-9][0-9]', r'splitMarker', line)
+
+                    message = line.split('splitMarker - ')[1]
+                    message = re.sub(r'<Media omitted>', r'', message)
+
+                    messages.append(message)
+                else:
+                    messages[messages.__len__() - 1] += line
     file.close()
 
     writeCleanedMessages(messages, outputFileName)
